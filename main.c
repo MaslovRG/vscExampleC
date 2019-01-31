@@ -12,10 +12,14 @@ int main(int argc, char *argv[])
 	scanf("%i", &a);
 	printf("Input second item: "); 
 	scanf("%i", &b);  
-	printf("First item: %i", a); 
-    printf("Second item: %i", b); 
+	printf("First item: %i\n", a); 
+    printf("Second item: %i\n", b); 
     int sum = mysum(a, b); 
-    printf("Sum: %i", sum); 	
+    printf("Sum: %i\n", sum); 	
+
+	// Ожидание ввода или точка остановки на return 0. Как сделать запуск во внутренней консоли не знаю. 
+	getchar();
+	getchar(); 
 
 	return 0;
 }
