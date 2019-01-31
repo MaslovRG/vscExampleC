@@ -9,11 +9,13 @@ ifeq ($(mode), release)
 	CFLAGS += -DNDEBUG -g0
 endif
 
+app.exe: main.o
+	$(CC) $(CFLAGS) -o $@ $^
+
 %.o: %.c *.h
 	$(CC) $(CFLAGS) -c $< 	
 
 clean:
 	del *.o *.exe
 	
-app.exe: main.o
-	$(CC) $(CFLAGS) -o $@ $^
+
