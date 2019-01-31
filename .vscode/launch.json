@@ -1,0 +1,56 @@
+{
+    // Используйте IntelliSense, чтобы узнать о возможных атрибутах.
+    // Наведите указатель мыши, чтобы просмотреть описания существующих атрибутов.
+    // Для получения дополнительной информации посетите: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [        
+        {
+            // Для отладки основного приложения app.exe. Отладка запускается нажатием F5
+            "name": "(gdb) Launch main app",
+            "type": "cppdbg",
+            "request": "launch",
+            // app.exe находится прямо в папке-рабочей области
+            "program": "${workspaceFolder}/app",
+            // Если нужны аргументы, то они прописываются тут (!!!)
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": true,            
+            "MIMode": "gdb",
+            // Из PATH почему-то не читает, приходится писать прямой путь к gdb
+            "miDebuggerPath": "C:\\Programs\\WinBuildsGCC\\bin\\gdb.exe",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            // Чтобы перед запуском отладки запускалась сборка (!!!)
+            "preLaunchTask": "make debug app"
+        },
+        // Тоже самое, но для тестов
+        {
+            "name": "(gdb) Launch tests",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/test",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": true,
+            "MIMode": "gdb",
+            "miDebuggerPath": "C:\\Programs\\WinBuildsGCC\\bin\\gdb.exe",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "make debug app"
+        }
+    ]
+}
